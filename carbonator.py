@@ -1,10 +1,6 @@
 # Created by Blake Cornell, CTO, Integris Security LLC
 # Integris Security Carbonator - Beta Version - v0.1
-# Future versions may include the following:
-#	1) forced porting to java. (option of last resort)
-#	2) option for not using CLI options (a.k.a. In GUI Execution)
-#	3) custom reporting
-#	4) other secret ideas
+# Released under GPL Version 2 license.
 #
 # 1) This extension requires a Burp Suite Pro license.
 # 2) You must initially load this file into the extension tab of Burp.
@@ -20,7 +16,6 @@
 # For more information contact us at carbonator at integrissecurity dot com
 # Or visit us at https://www.integrissecurity.com/
 # Also: Our site has Application IDS so running this tool against us will result in an abuse notification.
-
 from burp import IBurpExtender
 from burp import IHttpListener
 from burp import IScannerListener
