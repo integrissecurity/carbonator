@@ -1,0 +1,4 @@
+http localhost 80
+http 127.0.0.1 80
+https localhost 443
+https 127.0.0.1 443
