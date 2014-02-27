@@ -88,7 +88,7 @@ class BurpExtender(IBurpExtender, IHttpListener, IScannerListener):
     def generateReport(self, format):
 	if format != 'XML':
 		format = 'HTML'	
-	self._callbacks.generateScanReport(format,self.scanner_results,File('carbonator_reports/IntegrisSecurity_Carbonator_'+self.scheme+'_'+self.fqdn+'_'+str(self.port)+'.'+format.lower()))
+	self._callbacks.generateScanReport(format,self.scanner_results,File('IntegrisSecurity_Carbonator_'+self.scheme+'_'+self.fqdn+'_'+str(self.port)+'.'+format.lower()))
 	return
 
     def processCLI(self):

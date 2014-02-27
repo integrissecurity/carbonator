@@ -1,3 +1,6 @@
+# Created by Blake Cornell, CTO, Integris Security LLC
+# Integris Security Carbonator - Beta Version - v0.1
+# Released under GPL Version 2 license.
 
 if [[ -n $1 && -n $2 && -n $3 ]]
 then
