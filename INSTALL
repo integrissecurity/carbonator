@@ -7,5 +7,6 @@
 	This will open burp, run scan against the supplied information, generate the report, then close burp.
 4) Wrap 'launch_burp.sh' into your own script to automate scanning and reporting of any number of sites.
 	Example how to do this is locate within the usage information within 'launch_burp.sh'
+	Ex: `cat scheme_fqdn_port.txt | xargs -L1 ./launch_burp.sh`
+	scheme_fqdn_port.txt is loaded with localhost examples of how to set up a multihost flatfile.
 5) Provide your feedback, desired changes and code updates.
-
