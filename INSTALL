@@ -1,6 +1,10 @@
 1) This extension requires a Burp Suite Pro license.
 2) You must initially load this file into the extension tab of Burp.
 	This will perpetually keep it loaded in your burp configuration.
+	This will have to be done for every new version of burp you have locally installed.
+	Note: It is required that you provide the path to the Jython Jar file.
+		This is installable via CentOS 6.5 by `yum install jython-2.2.1-4.8`
+		The file is then located at `/usr/share/java/jython.jar`
 3) This tool only runs if using the provided 'launch_burp.sh' script. 
 	usage: ./launch_burp.sh scheme fqdn portnumber path
 	Modify 'launch_burp.sh' to point to your burp jar locate and file name.
