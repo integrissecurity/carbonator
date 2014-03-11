@@ -2,20 +2,10 @@
 # Integris Security Carbonator - Beta Version - v0.1
 # Released under GPL Version 2 license.
 #
-# 1) This extension requires a Burp Suite Pro license.
-# 2) You must initially load this file into the extension tab of Burp.
-#	This will perpetually keep it loaded in your burp configuration.
-# 3) This tool only runs if using the provided 'launch_burp.sh' script. 
-#	usage: ./launch_burp.sh scheme fqdn portnumber
-#	Modify 'launch_burp.sh' to point to your burp jar locate and file name.
-# 	This will open burp, run scan against the supplied information, generate the report, then close burp.
-# 4) Wrap 'launch_burp.sh' into your own script to automate scanning and reporting of any number of sites.
-#	Example how to do this is locate within the usage information within 'launch_burp.sh'
-# 5) Provide your feedback, desired changes and code updates.
-#
+# See the INSTALL file for installation instructions.
+# 
 # For more information contact us at carbonator at integrissecurity dot com
 # Or visit us at https://www.integrissecurity.com/
-# Also: Our site has Application IDS so running this tool against us will result in an abuse notification.
 from burp import IBurpExtender
 from burp import IHttpListener
 from burp import IScannerListener
