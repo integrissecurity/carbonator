@@ -86,6 +86,9 @@ class BurpExtender(IBurpExtender, IHttpListener, IScannerListener):
 	if len(cli) < 0:
 		print "Incomplete target information provided."
 		return False
+	elif not cli:
+		print "This is expected if loaded from within Burp Suite.\nIf you are running from within Burp Suite then you are ready to use Carbonator."
+		return False
 	elif cli[0] == 'https' or cli[0] == 'http': #cli[0]=scheme,cli[1]=fqdn,cli[2]=port
 		self.scheme = cli[0]
 		self.fqdn = cli[1]
