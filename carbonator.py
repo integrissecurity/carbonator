@@ -15,8 +15,9 @@ import time
 
 class BurpExtender(IBurpExtender, IHttpListener, IScannerListener):
     def registerExtenderCallbacks(self, callbacks):
+
 	self._callbacks = callbacks
-	self._callbacks.setExtensionName("Integris Security Carbonator")
+	self._callbacks.setExtensionName("Carbonator")
 	self._helpers = self._callbacks.getHelpers()
 	self.clivars = None
 
@@ -87,9 +88,10 @@ class BurpExtender(IBurpExtender, IHttpListener, IScannerListener):
 		print "Incomplete target information provided."
 		return False
 	elif not cli:
-		print "This is expected if loaded from within Burp Suite.\nIf you are running from within Burp Suite then you are ready to use Carbonator."
+		print "Integris Security Carbonator is now loaded."
 		#print "If Carbonator was loaded through the CApp store then you can run in headless mode simply adding the `-Djava.awt.headless=true` flag from within your shell" #headless doesn't work ATM. Working on it.
-		print "For for information about carbonator please visit https://github.com/integrissecurity/carbonator or email us at carbonator at integrissecurity dot com."
+		print "For questions or feature requests contact us at carbonator at integris security dot com."
+		print "Visit carbonator at https://github.com/integrissecurity/carbonator"
 		return False
 	elif cli[0] == 'https' or cli[0] == 'http': #cli[0]=scheme,cli[1]=fqdn,cli[2]=port
 		self.scheme = cli[0]
