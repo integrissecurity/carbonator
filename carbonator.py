@@ -88,6 +88,8 @@ class BurpExtender(IBurpExtender, IHttpListener, IScannerListener):
 		return False
 	elif not cli:
 		print "This is expected if loaded from within Burp Suite.\nIf you are running from within Burp Suite then you are ready to use Carbonator."
+		#print "If Carbonator was loaded through the CApp store then you can run in headless mode simply adding the `-Djava.awt.headless=true` flag from within your shell" #headless doesn't work ATM. Working on it.
+		print "For for information about carbonator please visit https://github.com/integrissecurity/carbonator or email us at carbonator at integrissecurity dot com."
 		return False
 	elif cli[0] == 'https' or cli[0] == 'http': #cli[0]=scheme,cli[1]=fqdn,cli[2]=port
 		self.scheme = cli[0]
