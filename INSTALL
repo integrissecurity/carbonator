@@ -14,3 +14,11 @@
 	Ex: `cat scheme_fqdn_port.txt | xargs -L1 ./launch_burp.sh`
 	scheme_fqdn_port.txt is loaded with localhost examples of how to set up a multihost flatfile.
 5) Provide your feedback, desired changes and code updates.
+
+Please Note: Carbonator is available directly from within the Burp Suite Pro BApp Store.
+
+Visit the BApp store for more information: https://pro.portswigger.net/bappstore/
+
+For questions or feature requests contact Integris Security at one of the two following contact methods
+	carbonator at integris security dot com
+	https://www.integrissecurity.com/index.php?contactus
