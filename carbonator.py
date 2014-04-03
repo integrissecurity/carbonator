@@ -89,7 +89,7 @@ class BurpExtender(IBurpExtender, IHttpListener, IScannerListener):
 		return False
 	elif not cli:
 		print "Integris Security Carbonator is now loaded."
-		#print "If Carbonator was loaded through the CApp store then you can run in headless mode simply adding the `-Djava.awt.headless=true` flag from within your shell" #headless doesn't work ATM. Working on it.
+		print "If Carbonator was loaded through the CApp store then you can run in headless mode simply adding the `-Djava.awt.headless=true` flag from within your shell. Note: If burp doesn't close at the conclusion of a scan then disable Automatic Backup on Exit."
 		print "For questions or feature requests contact us at carbonator at integris security dot com."
 		print "Visit carbonator at https://github.com/integrissecurity/carbonator"
 		return False
