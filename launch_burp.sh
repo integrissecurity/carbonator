@@ -10,7 +10,7 @@ then
 	FOLDER=$4
 	echo Launching Scan against $1://$2:$3$4
 	#java -jar -Xmx1024m ../burp_suite/burpsuite_pro_v1.5.21.jar $SCHEME $FQDN $PORT $FOLDER
-	java -jar -Xmx1024m ../burp_suite/burpsuite_pro_v1.6beta.jar $SCHEME $FQDN $PORT $FOLDER
+	java -jar -Xmx1024m ../burp_suite/burpsuite_pro_v1.6beta2.jar $SCHEME $FQDN $PORT $FOLDER
 	#java -jar -Xmx1024m -Djava.awt.headless=true burpsuite_pro_v1.5.21.jar $SCHEME $FQDN $PORT
 else
 	echo Usage: $0 scheme fqdn port path

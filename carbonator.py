@@ -1,5 +1,5 @@
 # Created by Blake Cornell, CTO, Integris Security LLC
-# Integris Security Carbonator - Beta Version - v0.1
+# Integris Security Carbonator - Beta Version - v1.1
 # Released under GPL Version 2 license.
 #
 # See the INSTALL file for installation instructions.
@@ -36,6 +36,13 @@ class BurpExtender(IBurpExtender, IHttpListener, IScannerListener):
 	#add to scope if not already in there.
 	if self._callbacks.isInScope(self.url) == 0:
 		self._callbacks.includeInScope(self.url)
+
+	#added to ensure that the root directory is scanned
+	base_request = str.encode("GET "+self.path+" HTTP/1.1\nHost: "+self.fqdn+"\n\n")
+	if(self.scheme == 'HTTPS'):
+		print self._callbacks.doActiveScan(self.fqdn,self.port,1,base_request)
+	else:
+		print self._callbacks.doActiveScan(self.fqdn,self.port,0,base_request)
 
 	self._callbacks.sendToSpider(self.url)
 	self._callbacks.registerHttpListener(self)
