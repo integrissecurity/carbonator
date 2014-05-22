@@ -38,7 +38,7 @@ class BurpExtender(IBurpExtender, IHttpListener, IScannerListener):
 		self._callbacks.includeInScope(self.url)
 
 	#added to ensure that the root directory is scanned
-	base_request = str.encode("GET "+self.path+" HTTP/1.1\nHost: "+self.fqdn+"\n\n")
+	base_request = str.encode(str("GET "+self.path+" HTTP/1.1\nHost: "+self.fqdn+"\n\n"))
 	if(self.scheme == 'HTTPS'):
 		print self._callbacks.doActiveScan(self.fqdn,self.port,1,base_request)
 	else:
