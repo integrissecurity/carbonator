@@ -6,7 +6,7 @@
 		This is installable via CentOS 6.5 by `yum install jython-2.2.1-4.8`
 		The file is then located at `/usr/share/java/jython.jar`
 3) Carbonator only runs if using the provided 'launch_burp.sh' script. 
-	usage: ./launch_burp.sh scheme fqdn portnumber path
+	usage: ./launch_burp.sh scheme fqdn portnumber path email - path & email are both optional
 	Modify 'launch_burp.sh' to point to your burp jar locate and file name.
 	This will open burp, run scan against the supplied information, generate the report, then close burp.
 4) Wrap 'launch_burp.sh' into your own script to automate scanning and reporting of any number of sites.

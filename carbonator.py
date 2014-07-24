@@ -11,11 +11,11 @@ from burp import IHttpListener
 from burp import IScannerListener
 from java.net import URL
 from java.io import File
+
 import time
 
 class BurpExtender(IBurpExtender, IHttpListener, IScannerListener):
     def registerExtenderCallbacks(self, callbacks):
-
 	self._callbacks = callbacks
 	self._callbacks.setExtensionName("Carbonator")
 	self._helpers = self._callbacks.getHelpers()
@@ -50,7 +50,7 @@ class BurpExtender(IBurpExtender, IHttpListener, IScannerListener):
 
 	while int(time.time())-self.last_packet_seen <= self.packet_timeout:
 		time.sleep(1)
-	print "No packets seen in the last ", self.packet_timeout, " seconds."
+	print "No packets seen in the last", self.packet_timeout, "seconds."
 	print "Removing Listeners"
 	self._callbacks.removeHttpListener(self)
 	self._callbacks.removeScannerListener(self)
@@ -59,7 +59,7 @@ class BurpExtender(IBurpExtender, IHttpListener, IScannerListener):
 	print "Generating Report"
 	self.generateReport('HTML')
 	print "Report Generated"
-	print "Closing Burp in ", self.packet_timeout, " seconds."
+	print "Closing Burp in", self.packet_timeout, "seconds."
 	time.sleep(self.packet_timeout)
 
 	if self.clivars:
@@ -86,7 +86,11 @@ class BurpExtender(IBurpExtender, IHttpListener, IScannerListener):
     def generateReport(self, format):
 	if format != 'XML':
 		format = 'HTML'	
-	self._callbacks.generateScanReport(format,self.scanner_results,File('IntegrisSecurity_Carbonator_'+self.scheme+'_'+self.fqdn+'_'+str(self.port)+'.'+format.lower()))
+
+	file_name = 'IntegrisSecurity_Carbonator_'+self.scheme+'_'+self.fqdn+'_'+str(self.port)+'.'+format.lower()
+	self._callbacks.generateScanReport(format,self.scanner_results,File(file_name))
+
+	time.sleep(5)
 	return
 
     def processCLI(self):
@@ -96,17 +100,17 @@ class BurpExtender(IBurpExtender, IHttpListener, IScannerListener):
 		return False
 	elif not cli:
 		print "Integris Security Carbonator is now loaded."
-		print "If Carbonator was loaded through the CApp store then you can run in headless mode simply adding the `-Djava.awt.headless=true` flag from within your shell. Note: If burp doesn't close at the conclusion of a scan then disable Automatic Backup on Exit."
+		print "If Carbonator was loaded through the BApp store then you can run in headless mode simply adding the `-Djava.awt.headless=true` flag from within your shell. Note: If burp doesn't close at the conclusion of a scan then disable Automatic Backup on Exit."
 		print "For questions or feature requests contact us at carbonator at integris security dot com."
-		print "Visit carbonator at https://github.com/integrissecurity/carbonator"
+		print "Visit carbonator at https://www.integrissecurity.com/index.php?resources=Carbonator"
 		return False
-	elif cli[0] == 'https' or cli[0] == 'http': #cli[0]=scheme,cli[1]=fqdn,cli[2]=port
+	elif cli[0] == 'https' or cli[0] == 'http': #cli[0]=scheme,cli[1]=fqdn,c
 		self.scheme = cli[0]
 		self.fqdn = cli[1]
 		self.port = int(cli[2])
 		if len(cli) == 3:
 			self.path = '/'
-		elif len(cli) == 4:
+		elif len(cli) >= 4:
 			self.path = cli[3]
 		else:
 			print "Unknown number of CLI arguments"
