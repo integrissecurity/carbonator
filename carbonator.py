@@ -1,5 +1,5 @@
 # Created by Blake Cornell, CTO, Integris Security LLC
-# Integris Security Carbonator - Beta Version - v1.1
+# Integris Security Carbonator - Beta Version - v1.2
 # Released under GPL Version 2 license.
 #
 # See the INSTALL file for installation instructions.
@@ -104,7 +104,7 @@ class BurpExtender(IBurpExtender, IHttpListener, IScannerListener):
 		print "For questions or feature requests contact us at carbonator at integris security dot com."
 		print "Visit carbonator at https://www.integrissecurity.com/index.php?resources=Carbonator"
 		return False
-	elif cli[0] == 'https' or cli[0] == 'http': #cli[0]=scheme,cli[1]=fqdn,c
+	elif cli[0] == 'https' or cli[0] == 'http': #cli[0]=scheme,cli[1]=fqdn,cli[2]=port
 		self.scheme = cli[0]
 		self.fqdn = cli[1]
 		self.port = int(cli[2])
