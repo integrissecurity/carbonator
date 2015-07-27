@@ -118,5 +118,6 @@ class BurpExtender(IBurpExtender, IHttpListener, IScannerListener):
 		self.url = URL(self.scheme,self.fqdn,self.port,self.path)
 	else:
 		print "Invalid command line arguments supplied"
+		print cli[0], cli[1], cli[2], cli[3]
 		return False
 	return True
